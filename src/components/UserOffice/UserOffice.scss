@@ -1,0 +1,45 @@
+.app__userOffice {
+  margin: 30px 0 50px 0;
+  padding: 0 30px 0 30px;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.userOffice__userAvatarBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.userOffice__userInfoBlock {
+  margin-top: 20px;
+  width: 100%;
+  height: 550px;
+  display: flex;
+  align-items: center;
+}
+.userInfoBlock__infoNavigation {
+  margin-right: 7px;
+  padding: 25px 0 0 20px;
+  height: 100%;
+  width: 400px;
+  background-color: #3d3d44;
+  border-radius: 10px;
+}
+.userInfoBlock__infoPage {
+  height: 100%;
+  width: 100%;
+  background-color: #3d3d44;
+  border-radius: 10px;
+}
+.infoNavigation__item {
+  transition: 0.3s;
+  cursor: pointer;
+  margin-bottom: 50px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #ececec;
+}
+.infoNavigation__item.active {
+  color: #d81f26;
+}

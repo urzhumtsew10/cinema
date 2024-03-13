@@ -1,0 +1,90 @@
+.authContent__authFormBlock {
+  padding: 0 30px 0 30px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.authFormBlock__title {
+  font-size: 30px;
+  font-weight: 600;
+  color: #fff;
+}
+.authFormBlock__authForm {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.authForm__inputBox {
+  position: relative;
+  width: 100%;
+}
+.inputBox__error {
+  color: #ff5056;
+  font-size: 14px;
+  font-weight: 400;
+  position: absolute;
+  top: 10px;
+  right: 1px;
+}
+.inputBox__input.error {
+  border: 2px solid #ff5056;
+}
+.inputBox__input {
+  margin-top: 30px;
+  padding-left: 10px;
+  width: 100%;
+  height: 45px;
+  border: 2px solid #b9b8b9;
+  border-radius: 10px;
+
+  font-size: 16px;
+  color: #fff;
+  font-weight: 500;
+}
+.inputBox__input::placeholder {
+  color: #fff;
+  font-weight: 400;
+}
+.inputBox__input:first-child {
+  margin-top: 0;
+}
+.authForm__btnSubmit {
+  position: relative;
+  margin-top: 50px;
+  width: 285px;
+  height: 50px;
+  border: 2px solid #b9b8b9;
+  border-radius: 15px;
+
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+}
+.authForm__btnSubmit::before {
+  transition: 0.3s;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 12px;
+  background-color: #b9b8b996;
+}
+.authForm__btnSubmit:hover:before {
+  width: 100%;
+}
+.authFormBlock__text {
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: 400;
+  color: #b9b8b9;
+}
+.text__span {
+  cursor: pointer;
+  font-weight: 500;
+  color: #d81f26;
+}

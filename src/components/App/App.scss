@@ -1,0 +1,26 @@
+@import url("../../index.scss");
+
+.app {
+  position: relative;
+  width: 100%;
+  display: flex;
+}
+.app__mainSection {
+  background-color: #202127;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 83.7%;
+  min-height: 100%;
+}
+::-webkit-scrollbar {
+  width: 15px;
+  background: #202127;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #696c7f;
+}

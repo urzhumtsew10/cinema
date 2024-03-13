@@ -1,0 +1,119 @@
+.infoPage__orderHistoryPage {
+  padding: 20px 20px 0 20px;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 350px);
+  grid-template-rows: 200px;
+  gap: 20px;
+  overflow-y: scroll;
+}
+.orderHistoryPage__orderTicket {
+  position: relative;
+  width: 350px;
+  height: 200px;
+  background-color: #cecece;
+  display: flex;
+}
+.orderTicket__centerCut {
+  position: relative;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  height: 100%;
+}
+.centerCut__line {
+  width: 2.5px;
+  height: 10px;
+  background-color: #3d3d44;
+  border-radius: 10px;
+}
+.centerCut__topCut,
+.centerCut__bottomCut {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #3d3d44;
+}
+.centerCut__topCut {
+  top: -8px;
+}
+.centerCut__bottomCut {
+  bottom: -8px;
+}
+.orderTicket__leftPart,
+.orderTicket__rightPart {
+  height: 100%;
+}
+.orderTicket__leftPart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+}
+.orderTicket__rightPart {
+  position: relative;
+  padding-left: 20px;
+  width: 250px;
+  //   background-color: aquamarine;
+}
+.rightPart__title {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #696c7f;
+}
+.rightPart__seats {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #696c7f;
+  width: 200px;
+  overflow-x: scroll;
+}
+.rigthPart__price {
+  position: absolute;
+  bottom: 10px;
+  right: 25px;
+
+  font-size: 18px;
+  font-weight: 600;
+  color: #3a3c46;
+}
+.rightPart__seats::-webkit-scrollbar {
+  height: 2px;
+  background: #202127;
+}
+.rightPart__seats::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #696c7f;
+}
+.orderTicket__leftCutsBlock {
+  position: absolute;
+  left: -9px;
+  display: grid;
+  align-items: center;
+  height: 100%;
+}
+.orderTicket__rightCutsBlock {
+  position: absolute;
+  right: -9px;
+  display: grid;
+  align-items: center;
+  height: 100%;
+}
+.leftCutsBlock__cut,
+.rightCutsBlock__cut {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #3d3d44;
+}
+.leftPart__ticketId {
+  transform: rotate(90deg);
+  font-size: 12px;
+  font-weight: 500;
+  color: #696c7f;
+}

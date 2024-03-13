@@ -1,0 +1,160 @@
+.app__bookingPage {
+  padding: 10px 0 0 50px;
+  margin-top: 50px;
+  width: 100%;
+  height: 700px;
+}
+.bookingPage__filmDataBlock {
+  display: flex;
+}
+.filmDataBlock__img {
+  height: 250px;
+  border-radius: 10px;
+}
+.filmDataBlock__filmInfoBlock {
+  margin-left: 20px;
+}
+.filmInfoBlock__title {
+  font-size: 35px;
+  font-weight: 500;
+  color: #cecece;
+  span {
+    font-size: 38px;
+    font-weight: 700;
+  }
+}
+.filmInfoBlock__sessionsBlock {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+.sessionsBlock__filmSession {
+  cursor: pointer;
+  width: 125px;
+  height: 45px;
+  background-color: #696c7f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+.sessionsBlock__filmSession.active {
+  background-color: #33343b;
+}
+.sessionsBlock__filmSession:hover {
+  border: 2px solid #696c7f;
+  background-color: transparent;
+}
+.filmSession__text {
+  font-size: 18px;
+  font-weight: 600;
+  color: #cecece;
+  span {
+    font-weight: 500;
+    color: #aeaeae;
+  }
+}
+.bookingPage__bookingSection {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+}
+.bookingSection__cinemaHallBlock {
+  margin-right: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cinemaHallBlock__seatsBlock {
+  width: 600px;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  row-gap: 10px;
+}
+.seatsBlock__img {
+  cursor: pointer;
+  transition: 0.3s;
+  width: 32px;
+  height: 32px;
+}
+.seatsBlock__img:hover {
+  path,
+  rect {
+    fill: #aeaeae;
+  }
+}
+.seatsBlock__img.selected {
+  path,
+  rect {
+    fill: #aeaeae;
+  }
+}
+.seatsBlock__img.busy {
+  cursor: default;
+  path,
+  rect {
+    fill: #d81f26;
+  }
+}
+.seatsBlock__img.own {
+  cursor: default;
+  path,
+  rect {
+    fill: #1fd891;
+  }
+}
+.cinemaHallBlock__screen {
+  margin-top: 0px;
+  width: 750px;
+  height: 75px;
+  border-bottom: 5px solid #696c7f;
+  border-radius: 30%;
+}
+.bookingSection__bookingForm {
+  padding: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 350px;
+  height: 450px;
+  background-color: #696c7f42;
+  border: 2px solid #696c7f;
+  border-radius: 10px;
+}
+.bookingForm__title {
+  font-size: 23px;
+  font-weight: 800;
+  color: #696c7f;
+}
+.bookingForm__seats {
+  font-size: 16px;
+  font-weight: 500;
+  color: #a5a8b6;
+  span {
+    font-size: 20px;
+    color: #696c7f;
+  }
+}
+.bookingForm__payBtn {
+  transition: 0.3s;
+  position: absolute;
+  bottom: 10px;
+  width: 200px;
+  height: 45px;
+  background-color: #696c7f;
+  border-radius: 15px;
+
+  font-size: 20px;
+  font-weight: 500;
+  color: #cecece;
+}
+.bookingForm__payBtn:hover {
+  background-color: #cecece;
+  color: #696c7f;
+}
