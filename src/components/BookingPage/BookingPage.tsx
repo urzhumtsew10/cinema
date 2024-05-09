@@ -47,7 +47,7 @@ export const BookingPage: FC = () => {
     restriction: 0,
     releaseDate: "",
     actors: [],
-    videoPath: "",
+    videoId: "",
     imgPath: "",
   });
   const getSeats = () => {

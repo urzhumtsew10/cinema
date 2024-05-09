@@ -9,6 +9,7 @@ import { ActorView } from "./ActorView";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { BASE_URL } from "../../App/App";
+import { useStorage } from "../../../firebase/config";
 
 export interface IFilm {
   title: string;
@@ -18,6 +19,7 @@ export interface IFilm {
   restriction: number;
   releaseDate: string;
   actors: any;
+  videoId: string;
 }
 
 export const FilmEditor: FC = () => {
@@ -27,11 +29,11 @@ export const FilmEditor: FC = () => {
     todayDate.getMonth() + 1 < 10
       ? `0${todayDate.getMonth() + 1}`
       : todayDate.getMonth() + 1;
-  const [videoUrl, setVideoUrl] = useState<any>(null);
-  const [videoFile, setVideoFile] = useState<File | null>(null);
+  const [imgUrl, setImgUrl] = useState<any>(null);
+  const [videoID, setVideoID] = useState<string>("");
   const [imgFile, setImgFile] = useState<File | null>(null);
+  const { url } = useStorage(imgFile);
 
-  const inputVideoRef = useRef<HTMLInputElement>(null);
   const inputImageRef = useRef<HTMLInputElement>(null);
   const [refreshActors] = useLazyGetActorsQuery();
   const [refreshFilms] = useLazyGetFilmsQuery();
@@ -57,16 +59,9 @@ export const FilmEditor: FC = () => {
   const openFile = function (file: File) {
     const reader = new FileReader();
     reader.onload = function () {
-      setVideoUrl(reader.result);
+      setImgUrl(reader.result);
     };
     reader.readAsDataURL(file);
-  };
-
-  const uploadVideo = (event: BaseSyntheticEvent) => {
-    event.preventDefault();
-    if (inputVideoRef.current) {
-      inputVideoRef.current.click();
-    }
   };
 
   const uploadImage = (event: BaseSyntheticEvent) => {
@@ -76,38 +71,26 @@ export const FilmEditor: FC = () => {
     }
   };
 
-  const changeVideoFile = (event: ChangeEvent<HTMLInputElement>) => {
-    if (event.currentTarget.files) {
-      openFile(event.currentTarget.files[0]);
-      setVideoFile(event.currentTarget.files[0]);
-    }
-  };
-
   const changeImageFile = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.currentTarget.files) {
+      openFile(event.currentTarget.files[0]);
       setImgFile(event.currentTarget.files[0]);
     }
   };
 
-  const tryCreateFilm = async (data: any) => {
-    if (videoFile === null || imgFile === null) return;
-    let formData = new FormData();
-    formData.append("file", videoFile);
+  const changeVideoInput = (event: BaseSyntheticEvent) => {
+    setVideoID(event.target.value);
+  };
 
-    const file = await axios.post(`${BASE_URL}/movie/file`, formData);
-    formData = new FormData();
-    formData.append("img", imgFile);
-    formData.delete("file");
-    const img = await axios.post(`${BASE_URL}/movie/poster`, formData);
+  const tryCreateFilm = async (data: any) => {
+    if (url === null) return;
+
     const res = await axios.post(`${BASE_URL}/movie`, {
       ...data,
       actors: getFormattingActorsArray(data),
-      videoName: videoFile.name,
-      imgName: imgFile.name,
+      imgPath: url,
     });
     reset();
-    setVideoUrl("");
-    setVideoFile(null);
     refreshActors("");
     refreshFilms("");
   };
@@ -152,28 +135,20 @@ export const FilmEditor: FC = () => {
           max="2025-01-01"
         />
         <input
-          onChange={changeVideoFile}
-          ref={inputVideoRef}
-          className="filmForm__input"
-          type="file"
-          accept="video/*"
-        />
-        <input
           onChange={changeImageFile}
           ref={inputImageRef}
           className="filmForm__input"
           type="file"
           accept="image/*"
         />
-        <div className="filmForm__uploadsBtn">
-          <button
-            onClick={uploadVideo}
-            className={`filmForm__customInputFile ${
-              videoUrl === null && "error"
-            }`}
-          >
-            Upload Video
-          </button>
+        <div className={`filmForm__uploadsBtn ${errors.videoId && "error"}`}>
+          <input
+            {...register("videoId")}
+            onChange={changeVideoInput}
+            className="filmForm__input--video"
+            placeholder="Video ID"
+          />
+
           <button
             onClick={uploadImage}
             className={`filmForm__customInputFile ${
@@ -193,7 +168,7 @@ export const FilmEditor: FC = () => {
         <button className="filmForm__btn">Create new Film</button>
       </form>
       <div className="filmEditor__otherFilmInfo">
-        <video className="otherFIlmInfo__video" controls src={videoUrl}></video>
+        {imgFile && <img className="otherFIlmInfo__poster" src={url} />}
         <div ref={checkboxesBlockRef} className="otherFilmInfo__actorsBlock">
           {data &&
             data.map(({ _id, imgPath, name, surname }) => (

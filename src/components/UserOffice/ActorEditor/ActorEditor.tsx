@@ -4,18 +4,12 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useLazyGetActorsQuery } from "../../../store/api";
 import { BASE_URL } from "../../App/App";
+import { useStorage } from "../../../firebase/config";
 
 export const ActorEditor: FC = () => {
-  const [imgUrl, setImgUrl] = useState<any>(null);
   const [addActor] = useLazyGetActorsQuery();
-
-  const openFile = function (file: File) {
-    const reader = new FileReader();
-    reader.onload = function () {
-      setImgUrl(reader.result);
-    };
-    reader.readAsDataURL(file);
-  };
+  const [imgFile, setImgFile] = useState<File | null>(null);
+  const { url } = useStorage(imgFile);
 
   interface IActorForm {
     name: string;
@@ -28,7 +22,6 @@ export const ActorEditor: FC = () => {
     reset,
     formState: { errors },
   } = useForm<IActorForm>();
-  const [imgFile, setImgFile] = useState<File | null>(null);
 
   const uploadRef = useRef<HTMLInputElement>(null);
   const uploadImg = (event: BaseSyntheticEvent) => {
@@ -40,27 +33,19 @@ export const ActorEditor: FC = () => {
 
   const changeImgFile = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.currentTarget.files) {
-      openFile(event.currentTarget.files[0]);
       setImgFile(event.currentTarget.files[0]);
     }
   };
 
   const tryCreateActor = async (data: IActorForm) => {
-    if (!imgFile) return false;
-
-    const formData = new FormData();
-    formData.append("img", imgFile);
-    const img = await axios.post(`${BASE_URL}/actor/img`, formData);
-    if (img.data) {
-      const res = await axios.post(`${BASE_URL}/actor`, {
-        ...data,
-        imgName: imgFile.name,
-      });
-      addActor("");
-      reset();
-      setImgUrl("");
-      setImgFile(null);
-    }
+    if (!url) return false;
+    const res = await axios.post(`${BASE_URL}/actor`, {
+      ...data,
+      imgPath: url,
+    });
+    addActor("");
+    reset();
+    setImgFile(null);
   };
 
   return (
@@ -98,11 +83,13 @@ export const ActorEditor: FC = () => {
         </button>
         <button className="actorEditor__btn">Create new actor</button>
       </form>
-      <img
-        className="actorEditor__viewImg"
-        src={imgUrl}
-        alt="view actor image"
-      />
+      {imgFile && (
+        <img
+          className="actorEditor__viewImg"
+          src={url}
+          alt="view actor image"
+        />
+      )}
     </div>
   );
 };

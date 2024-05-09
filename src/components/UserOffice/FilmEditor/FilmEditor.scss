@@ -11,8 +11,6 @@
 }
 .filmEditor__otherFilmInfo {
   display: flex;
-  flex-direction: column;
-  align-items: end;
 }
 .filmEditor__filmForm {
   display: flex;
@@ -34,6 +32,20 @@ input[type="file"] {
   font-weight: 500;
   color: #858585;
 }
+.filmForm__input--video {
+  padding-left: 10px;
+  width: 140px;
+  height: 40px;
+  border: 2px solid #2c2d33;
+  background-color: #3d3d44;
+  border-radius: 10px;
+  margin: 15px 15px 0 0;
+
+  font-size: 16px;
+  font-weight: 500;
+  color: #858585;
+}
+.filmForm__input--video.error,
 .filmForm__input.error,
 .filmForm__customInputFile.error {
   border: 2px solid #d81f26;
@@ -82,10 +94,11 @@ input[type="file"] {
   box-shadow: 0 0 15px #d81f25c4;
   text-shadow: 0 2px 15px #ffffffbe;
 }
-.otherFIlmInfo__video {
+.otherFIlmInfo__poster {
+  margin: 0 5px 0 5px;
   background-color: #858585;
-  width: 350px;
-  height: 200px;
+  height: 350px;
+  border-radius: 10px;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -99,8 +112,6 @@ input[type="date"] {
   padding-right: 10px;
 }
 .otherFilmInfo__actorsBlock {
-  margin-top: 10px;
-  padding-bottom: 10px;
   width: 500px;
   height: 290px;
   border-radius: 10px;

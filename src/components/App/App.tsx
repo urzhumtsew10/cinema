@@ -9,7 +9,7 @@ import { UserOffice } from "../UserOffice/UserOffice";
 import { FilmPage } from "../FilmPage/FilmPage";
 import { BookingPage } from "../BookingPage/BookingPage";
 
-export const BASE_URL = "http://localhost:3333";
+export const BASE_URL = "https://cinema-api-sand.vercel.app";
 
 function App() {
   return (

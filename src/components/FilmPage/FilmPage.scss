@@ -5,6 +5,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  iframe {
+    width: 1180px;
+    height: 600px;
+  }
 }
 .filmPage__trailerVideo {
   margin-top: 50px;

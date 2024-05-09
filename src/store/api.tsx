@@ -21,7 +21,7 @@ export type Movie = {
   restriction: number;
   releaseDate: string;
   actors: ActorsArr[];
-  videoPath: string;
+  videoId: string;
   imgPath: string;
 };
 
@@ -50,7 +50,9 @@ export type TOrder = {
 
 export const appApi = createApi({
   reducerPath: "appApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3333" }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: "https://cinema-api-sand.vercel.app",
+  }),
   endpoints: (builder) => ({
     getActors: builder.query<Actor[], string>({
       query: () => "/actor",

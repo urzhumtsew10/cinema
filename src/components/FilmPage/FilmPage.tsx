@@ -7,6 +7,7 @@ import { setIsActive } from "../../store/navList";
 import { ActorCard } from "./ActorCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { ReactComponent as Star } from "../../svg/star.svg";
+import YouTube from "react-youtube";
 
 export const FilmPage: FC = () => {
   const params = useParams();
@@ -24,7 +25,7 @@ export const FilmPage: FC = () => {
     restriction: 0,
     releaseDate: "",
     actors: [],
-    videoPath: "",
+    videoId: "",
     imgPath: "",
   });
 
@@ -55,13 +56,14 @@ export const FilmPage: FC = () => {
     navigation(`/booking/${currentFilm._id}`);
   };
 
-  return (
+  console.log(currentFilm);
+
+  https: return (
     <div className="app__filmPage">
-      <video
+      <YouTube
         className="filmPage__trailerVideo"
-        src={currentFilm.videoPath}
-        controls
-      ></video>
+        videoId={currentFilm.videoId}
+      />
       <div className="filmPage__detailedInfo">
         <img
           className="detailedInfo__posterImg"
