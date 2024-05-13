@@ -1,8 +1,7 @@
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import "../ForKids/ForKids.scss";
 import { Movie, useGetFilmsQuery } from "../../store/api";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { ReactComponent as Arrow } from "../../svg/arrow.svg";
 import { KidsFilm } from "./KidsFilm";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -13,6 +12,19 @@ import { NavigationBtn } from "./NavigationBtn";
 export const ForKids: FC = () => {
   const [kidsFilms, setKidsFilms] = useState<Movie[]>([]);
   const films = useGetFilmsQuery("").data;
+
+  const [countFilms, setCountFilms] = useState<number>(1.35);
+
+  useEffect(() => {
+    if (window.screen.width >= 1280) {
+      setCountFilms(3.35);
+    } else if (window.screen.width < 1280 && window.screen.width >= 768) {
+      setCountFilms(2.35);
+    }
+    if (window.screen.width > 360 && window.screen.width <= 767) {
+      setCountFilms(1.35);
+    }
+  }, [window.screen.width]);
 
   useEffect(() => {
     if (!films) return;
@@ -25,8 +37,7 @@ export const ForKids: FC = () => {
       <h2 className="forKidsBlock__title">For Kids</h2>
       <Swiper
         className="forKidsBlock__swiperFilms"
-        spaceBetween={30}
-        slidesPerView={3}
+        slidesPerView={countFilms}
         autoplay={{
           delay: 2500,
           disableOnInteraction: false,

@@ -7,10 +7,20 @@ import { useNavigate } from "react-router-dom";
 
 export const Navigation: FC = () => {
   const navList = useAppSelector((state) => state.nav.list);
+  const navigate = useNavigate();
+
+  const openHomePage = () => {
+    navigate("/");
+  };
 
   return (
     <nav className="navigation">
-      <img className="navigation__img" src={logo} alt="logo" />
+      <img
+        onClick={openHomePage}
+        className="navigation__img"
+        src={logo}
+        alt="logo"
+      />
       <p className="navigation__text">Menu</p>
       <ul className="navigation__navigationList">
         {navList.slice(0, 3).map(({ id, text, name, isActive }) => (

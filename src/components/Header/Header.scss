@@ -4,11 +4,26 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media (min-width: 768px) and (max-width: 1279px) {
+    padding-left: calc(20px + (30 - 20) * ((100vw - 768px) / (1280 - 768)));
+    padding-right: calc(20px + (30 - 20) * ((100vw - 768px) / (1280 - 768)));
+  }
+  @media (min-width: 360px) and (max-width: 767px) {
+    padding-left: calc(15px + (20 - 15) * ((100vw - 360px) / (768 - 360)));
+    padding-right: calc(15px + (20 - 15) * ((100vw - 360px) / (768 - 360)));
+    padding-top: calc(15px + (25 - 15) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .header__greetings {
   font-size: 25px;
   font-weight: 400;
   color: #696c7f;
+  @media (min-width: 768px) and (max-width: 1279px) {
+    font-size: calc(22px + (25 - 22) * ((100vw - 768px) / (1280 - 768)));
+  }
+  @media (min-width: 360px) and (max-width: 767px) {
+    display: none;
+  }
 }
 .greetings__span {
   font-weight: 600;
@@ -18,10 +33,20 @@
   padding-left: 10px;
   display: flex;
   align-items: center;
-  width: 350px;
+  width: 500px;
   height: 50px;
   border: 2px solid #696c7f;
   border-radius: 15px;
+  @media (min-width: 768px) and (max-width: 1279px) {
+    width: calc(280px + (500 - 280) * ((100vw - 768px) / (1280 - 768)));
+    height: calc(45px + (50 - 45) * ((100vw - 768px) / (1280 - 768)));
+    border-radius: calc(12px + (15 - 12) * ((100vw - 768px) / (1280 - 768)));
+  }
+  @media (min-width: 360px) and (max-width: 767px) {
+    width: calc(215px + (280 - 215) * ((100vw - 360px) / (768 - 360)));
+    height: 45px;
+    border-radius: 12px;
+  }
 }
 
 .searchBar__img {
@@ -34,6 +59,10 @@
   circle {
     stroke: #696c7f;
   }
+  @media (min-width: 360px) and (max-width: 767px) {
+    width: calc(27px + (30 - 27) * ((100vw - 360px) / (768 - 360)));
+    height: calc(27px + (30 - 27) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .searchBar__img:hover {
   transform: scale(1.08) translateY(-2px);
@@ -44,6 +73,9 @@
   font-size: 16px;
   font-weight: 500;
   color: #696c7f;
+  @media (min-width: 360px) and (max-width: 767px) {
+    font-size: calc(14px + (16 - 14) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .header__loginBtn {
   position: relative;
@@ -56,6 +88,16 @@
   font-size: 22px;
   font-weight: 600;
   color: #696c7f;
+  @media (min-width: 768px) and (max-width: 1279px) {
+    border-radius: calc(12px + (15 - 15) * ((100vw - 768px) / (1280 - 768)));
+    height: calc(45px + (50 - 45) * ((100vw - 768px) / (1280 - 768)));
+  }
+  @media (min-width: 360px) and (max-width: 767px) {
+    width: calc(100px + (120 - 100) * ((100vw - 360px) / (768 - 360)));
+    height: 45px;
+    border-radius: 12px;
+    font-size: calc(20px + (22 - 20) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .header__loginBtn:before {
   content: "";

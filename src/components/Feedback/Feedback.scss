@@ -1,14 +1,22 @@
 .app__feedbackBlock {
-  padding-left: 155px;
   margin-top: 50px;
-  width: 100%;
   display: flex;
   flex-direction: column;
+  @media (min-width: 768px) and (max-width: 1279.5px) {
+    margin-top: calc(20px + (50 - 20) * ((100vw - 768px) / (1280 - 768)));
+  }
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    margin-top: calc(0px + (20 - 0) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .feedbackBlock__title {
   font-size: 20px;
   font-weight: 400;
   color: #696c7f;
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    font-size: calc(16px + (20 - 16) * ((100vw - 360px) / (768 - 360)));
+    max-width: calc(300px + (767 - 300) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .feedbackBlock__title__span {
   font-size: 25px;
@@ -25,6 +33,21 @@
   border: 2px solid #696c7f;
   background-color: #26272e;
   border-radius: 15px;
+  @media (min-width: 768px) and (max-width: 1279.5px) {
+    margin-top: calc(20px + (40 - 20) * ((100vw - 768px) / (1280 - 768)));
+    width: calc(600px + (950 - 600) * ((100vw - 768px) / (1280 - 768)));
+  }
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    margin-top: calc(20px + (20 - 20) * ((100vw - 360px) / (768 - 360)));
+    width: calc(320px + (600 - 320) * ((100vw - 360px) / (768 - 360)));
+    padding-top: calc(20px + (40 - 20) * ((100vw - 360px) / (768 - 360)));
+    padding-left: calc(15px + (20 - 15) * ((100vw - 360px) / (768 - 360)));
+    padding-right: calc(15px + (20 - 15) * ((100vw - 360px) / (768 - 360)));
+    padding-bottom: calc(20px + (40 - 20) * ((100vw - 360px) / (768 - 360)));
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 .feeedbackForm__feedbackFilmsBlock {
   display: flex;
@@ -50,6 +73,15 @@
   height: 370px;
   overflow-y: scroll;
   border-radius: 10px;
+  @media (min-width: 768px) and (max-width: 1279.5px) {
+    margin-top: calc(20px + (30 - 20) * ((100vw - 768px) / (1280 - 768)));
+    width: calc(300px + (480 - 300) * ((100vw - 768px) / (1280 - 768)));
+  }
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    margin-top: 15px;
+    width: calc(287px + (480 - 287) * ((100vw - 360px) / (768 - 360)));
+    height: calc(200px + (370 - 200) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .feedbackFilmsBlock__filmChoiceBlock.error {
   border: 2px solid #d81f26;
@@ -98,6 +130,9 @@
   font-size: 18px;
   font-weight: 500;
   color: #cecece;
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    font-size: calc(16px + (18 - 16) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .feedbackFilm__ratingBlock {
   padding: 5px 13px 5px 8px;
@@ -109,6 +144,9 @@
   justify-content: space-between;
   background-color: #d81f26;
   border-radius: 10px;
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    width: calc(60px + (65 - 60) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .ratingBlock__img {
   width: 25px;
@@ -118,6 +156,10 @@
     stroke: #fff;
     fill: #fff;
   }
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    width: calc(18px + (25 - 18) * ((100vw - 360px) / (768 - 360)));
+    height: calc(18px + (25 - 18) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .feedbackInfoBlock__starsBlock.error {
   border-bottom: 2px solid #d81f26;
@@ -126,17 +168,30 @@
   font-size: 18px;
   font-weight: 500;
   color: #fff;
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    font-size: calc(16px + (18 - 16) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .feedbackForm__feedbackInfoBlock {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 400px;
+  @media (min-width: 768px) and (max-width: 1279.5px) {
+    width: calc(240px + (400 - 240) * ((100vw - 768px) / (1280 - 768)));
+  }
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    margin-top: 20px;
+    width: calc(287px + (565 - 287) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .feedbackInfoBlock__title {
   font-size: 20px;
   font-weight: 500;
   color: #cecece;
+  @media (min-width: 768px) and (max-width: 1279.5px) {
+    font-size: calc(18px + (20 - 18) * ((100vw - 768px) / (1280 - 768)));
+  }
 }
 .feedbackInfoBlock__starsBlock {
   margin-top: 10px;
@@ -168,6 +223,12 @@
   font-size: 16px;
   font-weight: 400;
   color: #cecece;
+  @media (min-width: 768px) and (max-width: 1279.5px) {
+    margin-top: calc(155px + (150 - 155) * ((100vw - 768px) / (1280 - 768)));
+  }
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    margin-top: 20px;
+  }
 }
 .feedbackInfoBlock__btn {
   position: relative;

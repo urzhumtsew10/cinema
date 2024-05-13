@@ -3,20 +3,55 @@
   padding: 35px 0 50px 35px;
   width: 100%;
   border-top: 1px solid #2c2d35;
-
   display: flex;
+  @media (min-width: 360px) and (max-width: 1279px) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 300px);
+    justify-content: space-between;
+    width: 100%;
+    row-gap: 20px;
+    padding: 20px 0 0 20px;
+  }
+  @media (min-width: 768px) and (max-width: 1279px) {
+    padding-bottom: 20px;
+  }
+  @media (min-width: 360px) and (max-width: 767px) {
+    padding-bottom: 55px;
+    margin-top: calc(50px + (100 - 50) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .footer__columnOne {
-  margin-right: 100px;
+  margin-right: 150px;
+  @media (min-width: 1280px) and (max-width: 1919px) {
+    margin-right: calc(75px + (150 - 75) * ((100vw - 1280px) / (1920 - 1280)));
+  }
+  @media (min-width: 360px) and (max-width: 1279px) {
+    margin: 0;
+  }
 }
 .footer__columnTwo {
-  margin-right: 150px;
+  margin-right: 200px;
+  @media (min-width: 1280px) and (max-width: 1919px) {
+    margin-right: calc(50px + (200 - 50) * ((100vw - 1280px) / (1920 - 1280)));
+  }
+  @media (min-width: 360px) and (max-width: 1279px) {
+    margin: 0;
+  }
 }
 .footer__columnThree {
-  margin-right: 40px;
+  margin-right: 150px;
+  @media (min-width: 1280px) and (max-width: 1919px) {
+    margin-right: calc(30px + (150 - 30) * ((100vw - 1280px) / (1920 - 1280)));
+  }
+  @media (min-width: 360px) and (max-width: 1279px) {
+    margin: 0;
+  }
 }
 .columnOne__img {
   height: 80px;
+  @media (min-width: 360px) and (max-width: 1279px) {
+    height: 60px;
+  }
 }
 .columnOne__text {
   margin-top: 15px;

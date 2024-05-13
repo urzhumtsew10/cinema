@@ -1,4 +1,19 @@
 @import url("../../index.scss");
+body {
+  @media screen and (min-width: 1920px) {
+    background-color: #202127;
+  }
+}
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding-right: 20px;
+  padding-left: 20px;
+
+  @media screen and (min-width: 1920px) {
+    max-width: 1910px;
+  }
+}
 
 .app {
   position: relative;
@@ -13,8 +28,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 83.7%;
+  width: 1630px;
   min-height: 100%;
+  @media (min-width: 1280px) and (max-width: 1919px) {
+    width: calc(1100px + (1630 - 1100) * ((100vw - 1280px) / (1920 - 1280)));
+  }
+  @media (min-width: 768px) and (max-width: 1279.5px) {
+    width: calc(690px + (1200 - 690) * ((100vw - 768px) / (1279 - 768)));
+  }
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    width: calc(360px + (767 - 360) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 ::-webkit-scrollbar {
   width: 15px;

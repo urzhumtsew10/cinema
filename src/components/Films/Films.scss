@@ -4,9 +4,24 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    margin-top: calc(30px + (50 - 30) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .films__filmFilter {
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px 0 30px;
+  @media (min-width: 768px) and (max-width: 1279.5px) {
+    padding-right: calc(10px + (30 - 10) * ((100vw - 768px) / (1280 - 768)));
+    padding-left: calc(10px + (30 - 10) * ((100vw - 768px) / (1280 - 768)));
+  }
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    flex-direction: column;
+    padding-left: calc(10px + (10 - 10) * ((100vw - 360px) / (768 - 360)));
+    padding-right: calc(10px + (10 - 10) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .films__filmsPreview {
   margin-top: 20px;
@@ -16,6 +31,29 @@
   justify-content: center;
   gap: 30px;
   column-gap: 65px;
+  @media (min-width: 1280px) and (max-width: 1919px) {
+    column-gap: calc(50px + (65 - 50) * ((100vw - 1280px) / (1920 - 1280)));
+    grid-template-columns: repeat(
+      auto-fit,
+      calc(215px + (250 - 215) * ((100vw - 1280px) / (1920 - 1280)))
+    );
+  }
+  @media (min-width: 768px) and (max-width: 1279.5px) {
+    grid-template-columns: repeat(
+      auto-fit,
+      calc(200px + (215 - 200) * ((100vw - 768px) / (1280 - 768)))
+    );
+    gap: calc(20px + (30 - 20) * ((100vw - 768px) / (1280 - 768)));
+    column-gap: calc(20px + (50 - 20) * ((100vw - 768px) / (1280 - 768)));
+  }
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    grid-template-columns: repeat(
+      auto-fit,
+      calc(160px + (200 - 160) * ((100vw - 360px) / (768 - 360)))
+    );
+    gap: calc(15px + (30 - 15) * ((100vw - 360px) / (768 - 360)));
+    column-gap: calc(15px + (30 - 15) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .filmsPreview__filmPoster {
   cursor: pointer;
@@ -27,6 +65,19 @@
   display: flex;
   flex-direction: column;
   align-items: left;
+  @media (min-width: 1280px) and (max-width: 1919px) {
+    width: calc(215px + (250 - 215) * ((100vw - 1280px) / (1920 - 1280)));
+    height: calc(440px + (475 - 440) * ((100vw - 1280px) / (1920 - 1280)));
+  }
+  @media (min-width: 768px) and (max-width: 1279.5px) {
+    width: calc(200px + (250 - 200) * ((100vw - 768px) / (1280 - 768)));
+    height: calc(400px + (440 - 400) * ((100vw - 768px) / (1280 - 768)));
+  }
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    border-radius: 10px;
+    width: calc(160px + (200 - 160) * ((100vw - 360px) / (768 - 360)));
+    height: calc(340px + (400 - 340) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .filmsPreview__filmPoster:hover {
   .filmPoster__title {
@@ -52,18 +103,41 @@
   font-size: 16px;
   font-weight: 500;
   color: #ececec;
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    width: calc(50px + (60 - 50) * ((100vw - 360px) / (768 - 360)));
+    height: calc(25px + (30 - 25) * ((100vw - 360px) / (768 - 360)));
+    top: calc(10px + (15 - 10) * ((100vw - 360px) / (768 - 360)));
+    right: calc(10px + (15 - 10) * ((100vw - 360px) / (768 - 360)));
+    font-size: calc(13px + (16 - 13) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .filmPoster__img {
   transition: 0.3s;
   width: 100%;
   height: 400px;
   border-radius: 15px;
+  @media (min-width: 768px) and (max-width: 1279.5px) {
+    height: calc(315px + (400 - 315) * ((100vw - 768px) / (1280 - 768)));
+  }
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    border-radius: 10px;
+    height: calc(260px + (315 - 260) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .filmPoster__info {
   margin: 5px 0 0 5px;
   font-size: 17px;
   font-weight: 500;
   color: #696c7f;
+  @media (min-width: 1280px) and (max-width: 1919px) {
+    font-size: calc(16px + (17 - 16) * ((100vw - 1280px) / (1920 - 1280)));
+  }
+  @media (min-width: 768px) and (max-width: 1279.5px) {
+    font-size: calc(15px + (17 - 15) * ((100vw - 768px) / (1280 - 768)));
+  }
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    font-size: calc(12px + (15 - 12) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .filmPoster__title {
   transition: 0.3s;
@@ -71,15 +145,20 @@
   font-size: 25px;
   font-weight: 600;
   color: #ececec;
-}
-.films__filmFilter {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 30px 0 30px;
+  @media (min-width: 768px) and (max-width: 1279.5px) {
+    font-size: calc(23px + (25 - 23) * ((100vw - 768px) / (1280 - 768)));
+  }
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    padding-top: calc(0px + (5 - 0) * ((100vw - 360px) / (768 - 360)));
+    font-size: calc(18px + (25 - 18) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .filmFilter__filterByDay {
   display: flex;
   align-items: center;
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    justify-content: space-between;
+  }
 }
 .filterByDay__text {
   transition: 0.3s;
@@ -88,12 +167,24 @@
   font-size: 20px;
   font-weight: 500;
   color: #696c7f;
+  @media (min-width: 768px) and (max-width: 1279.5px) {
+    font-size: calc(18px + (20 - 18) * ((100vw - 768px) / (1280 - 768)));
+    margin-right: calc(20px + (25 - 20) * ((100vw - 768px) / (1280 - 768)));
+  }
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    font-size: calc(22px + (20 - 22) * ((100vw - 360px) / (768 - 360)));
+    margin: 0;
+  }
 }
 .filterByDay__text.active {
   color: #ececec;
 }
 .filmFilter__filterSelectBox {
   display: flex;
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    justify-content: space-between;
+    margin-top: 20px;
+  }
 }
 .filterSelectBox__filterContainer {
   position: relative;
@@ -101,6 +192,14 @@
   height: 45px;
   width: 150px;
   margin-right: 30px;
+  @media (min-width: 768px) and (max-width: 1279.5px) {
+    width: calc(130px + (150 - 130) * ((100vw - 768px) / (1280 - 768)));
+    height: calc(40px + (45 - 40) * ((100vw - 768px) / (1280 - 768)));
+    margin-right: calc(20px + (30 - 20) * ((100vw - 768px) / (1280 - 768)));
+  }
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    margin: 0;
+  }
 }
 .filterSelectBox__filterContainer:last-child {
   margin-right: 0;
@@ -113,7 +212,7 @@
   justify-content: space-between;
   position: relative;
   width: 100%;
-  height: 45px;
+  height: 100%;
   border-radius: 20px;
   background-color: #d81f26;
 }
@@ -146,7 +245,7 @@
   max-height: 0px;
   padding: 10px;
   background-color: #d81f26;
-  border-radius: 10px 0px 0px 10px;
+  border-radius: 0px 0px 10px 10px;
 }
 .filterContainer__selectList::-webkit-scrollbar {
   width: 3px;
@@ -156,7 +255,9 @@
   border-radius: 10px;
   background: #ed6065;
 }
-
+.filterContainer__selectedItem:has(> .active) {
+  border-radius: 20px 20px 0 0;
+}
 .filterContainer__selectList.active {
   animation: animation-select-filter 0.3s forwards;
   overflow-y: scroll;
