@@ -6,13 +6,32 @@
   flex-direction: column;
   align-items: center;
   iframe {
-    width: 1180px;
+    width: 100%;
     height: 600px;
+  }
+  @media (min-width: 768px) and (max-width: 1279.5px) {
+    margin-top: calc(0px + (40 - 0) * ((100vw - 768px) / (1280 - 768)));
+    padding-right: calc(30px + (50 - 30) * ((100vw - 768px) / (1280 - 768)));
+    padding-left: calc(30px + (50 - 30) * ((100vw - 768px) / (1280 - 768)));
+    iframe {
+      height: calc(300px + (600 - 300) * ((100vw - 768px) / (1280 - 768)));
+    }
+  }
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    margin-top: calc(0px + (0 - 0) * ((100vw - 360px) / (768 - 360)));
+    padding-left: calc(10px + (30 - 10) * ((100vw - 360px) / (768 - 360)));
+    padding-right: calc(10px + (30 - 10) * ((100vw - 360px) / (768 - 360)));
+    iframe {
+      height: calc(190px + (300 - 190) * ((100vw - 360px) / (768 - 360)));
+    }
   }
 }
 .filmPage__trailerVideo {
   margin-top: 50px;
   width: 100%;
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    margin-top: calc(30px + (50 - 30) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .filmPage__detailedInfo {
   margin-top: 30px;
@@ -21,9 +40,21 @@
 }
 .detailedInfo__posterImg {
   height: 500px;
+  @media (min-width: 768px) and (max-width: 1279.5px) {
+    height: calc(360px + (500 - 360) * ((100vw - 768px) / (1280 - 768)));
+  }
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    height: calc(125px + (360 - 125) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .detailedInfo__filmData {
   margin-left: 50px;
+  @media (min-width: 768px) and (max-width: 1279.5px) {
+    margin-left: calc(30px + (50 - 30) * ((100vw - 768px) / (1280 - 768)));
+  }
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    margin-left: calc(15px + (30 - 15) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .filmData__title {
   font-size: 30px;
@@ -36,6 +67,21 @@
   .title__star * {
     stroke: #e8a60d;
     fill: #e8a60d;
+  }
+  @media (min-width: 768px) and (max-width: 1279.5px) {
+    font-size: calc(28px + (30 - 28) * ((100vw - 768px) / (1280 - 768)));
+    span {
+      font-size: calc(30px + (35 - 30) * ((100vw - 768px) / (1280 - 768)));
+    }
+  }
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    font-size: calc(18px + (28 - 18) * ((100vw - 360px) / (768 - 360)));
+    span {
+      font-size: calc(18px + (30 - 18) * ((100vw - 360px) / (768 - 360)));
+    }
+    .title__star {
+      width: calc(18px + (24 - 18) * ((100vw - 360px) / (768 - 360)));
+    }
   }
 }
 .filmData__description {
@@ -51,6 +97,20 @@
     font-size: 18px;
     color: #4a4b57;
   }
+  @media (min-width: 768px) and (max-width: 1279.5px) {
+    width: calc(400px + (770 - 400) * ((100vw - 768px) / (1280 - 768)));
+    .description__span {
+      font-size: calc(16px + (18 - 16) * ((100vw - 768px) / (1280 - 768)));
+    }
+  }
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    margin-top: calc(10px + (20 - 10) * ((100vw - 360px) / (768 - 360)));
+    font-size: calc(14px + (18 - 14) * ((100vw - 360px) / (768 - 360)));
+    width: calc(250px + (400 - 250) * ((100vw - 360px) / (768 - 360)));
+    .description__span {
+      font-size: calc(14px + (16 - 14) * ((100vw - 360px) / (768 - 360)));
+    }
+  }
 }
 .filmData__text {
   margin-top: 15px;
@@ -59,6 +119,13 @@
   color: #696c7f;
   .filmData__span {
     color: #565660;
+  }
+  @media (min-width: 768px) and (max-width: 1279.5px) {
+    font-size: calc(16px + (18 - 16) * ((100vw - 768px) / (1280 - 768)));
+  }
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    font-size: calc(14px + (16 - 14) * ((100vw - 360px) / (768 - 360)));
+    margin-top: calc(10px + (15 - 10) * ((100vw - 360px) / (768 - 360)));
   }
 }
 
@@ -77,37 +144,98 @@
 .filmData__bookBtn:hover {
   box-shadow: 0 2px 18px #d81f25b5;
 }
-.filmPage__actorsSwiperBlock {
+.filmPage__actorsBlock {
   margin-top: 50px;
   width: 100%;
-  height: 400px;
 }
-.actorsSwiperBlock__actorsSwiper {
-  display: flex;
-  align-items: center;
+.actorsBlock {
+  width: 100%;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, 240px);
+  @media (min-width: 1280px) and (max-width: 1919px) {
+    grid-template-columns: repeat(
+      auto-fit,
+      calc(165px + (240 - 165) * ((100vw - 1280px) / (1920 - 1280)))
+    );
+  }
+  @media (min-width: 768px) and (max-width: 1279.5px) {
+    grid-template-columns: repeat(
+      auto-fit,
+      calc(150px + (165 - 150) * ((100vw - 768px) / (1280 - 768)))
+    );
+  }
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    grid-template-columns: repeat(
+      auto-fit,
+      calc(145px + (150 - 145) * ((100vw - 360px) / (768 - 360)))
+    );
+  }
 }
-.actorsSwiperBlock__title {
+.actorsBlock__title {
   font-size: 25px;
   font-weight: 500;
   color: #cecece;
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    font-size: calc(20px + (25 - 20) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .actorsSwiper__actorCard {
-  width: 190px;
-  height: 320px;
+  width: 240px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   padding: 10px;
+  @media (min-width: 1280px) and (max-width: 1919px) {
+    width: calc(165px + (240 - 165) * ((100vw - 1280px) / (1920 - 1280)));
+    height: calc(295px + (400 - 295) * ((100vw - 1280px) / (1920 - 1280)));
+  }
+  @media (min-width: 768px) and (max-width: 1279.5px) {
+    width: calc(150px + (165 - 150) * ((100vw - 768px) / (1280 - 768)));
+    height: calc(270px + (295 - 270) * ((100vw - 768px) / (1280 - 768)));
+  }
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    width: calc(145px + (150 - 145) * ((100vw - 360px) / (768 - 360)));
+    height: calc(255px + (270 - 255) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .actorCard__img {
-  height: 250px;
+  height: 315px;
+  @media (min-width: 1280px) and (max-width: 1919px) {
+    height: calc(215px + (315 - 215) * ((100vw - 1280px) / (1920 - 1280)));
+  }
+  @media (min-width: 768px) and (max-width: 1279.5px) {
+    height: calc(195px + (215 - 195) * ((100vw - 768px) / (1280 - 768)));
+  }
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    height: calc(180px + (195 - 180) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .actorCard__title {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 500;
   color: #cecece;
+  @media (min-width: 1280px) and (max-width: 1919px) {
+    font-size: calc(16px + (20 - 16) * ((100vw - 1280px) / (1920 - 1280)));
+  }
+  @media (min-width: 768px) and (max-width: 1279.5px) {
+    font-size: calc(14px + (16 - 14) * ((100vw - 768px) / (1280 - 768)));
+  }
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    font-size: calc(14px + (14 - 14) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .actorCard__role {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   color: #696c7f;
+  @media (min-width: 1280px) and (max-width: 1919px) {
+    font-size: calc(14px + (16 - 14) * ((100vw - 1280px) / (1920 - 1280)));
+  }
+  @media (min-width: 768px) and (max-width: 1279.5px) {
+    font-size: calc(14px + (14 - 14) * ((100vw - 768px) / (1280 - 768)));
+  }
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    font-size: calc(14px + (14 - 14) * ((100vw - 360px) / (768 - 360)));
+  }
 }

@@ -29,6 +29,19 @@ export const FilmPage: FC = () => {
     imgPath: "",
   });
 
+  const [countActors, setCountActors] = useState<number>(2.5);
+
+  useEffect(() => {
+    if (window.screen.width >= 1280) {
+      setCountActors(6.5);
+    } else if (window.screen.width < 1280 && window.screen.width >= 768) {
+      setCountActors(4.5);
+    }
+    if (window.screen.width > 360 && window.screen.width <= 767) {
+      setCountActors(1.35);
+    }
+  }, [window.screen.width]);
+
   useEffect(() => {
     dispatch(setIsActive(-1));
   }, []);
@@ -58,7 +71,7 @@ export const FilmPage: FC = () => {
 
   console.log(currentFilm);
 
-  https: return (
+  return (
     <div className="app__filmPage">
       <YouTube
         className="filmPage__trailerVideo"
@@ -100,15 +113,13 @@ export const FilmPage: FC = () => {
         </div>
       </div>
 
-      <div className="filmPage__actorsSwiperBlock">
-        <h2 className="actorsSwiperBlock__title">Actors</h2>
-        <Swiper className="actorsSwiperBlock__actorsSwiper" slidesPerView={6.5}>
+      <div className="filmPage__actorsBlock">
+        <h2 className="actorsBlock__title">Actors</h2>
+        <div className="actorsBlock">
           {currentFilm.actors.map(({ actorId, role }) => (
-            <SwiperSlide key={actorId}>
-              <ActorCard key={actorId} actorId={actorId} role={role} />
-            </SwiperSlide>
+            <ActorCard key={actorId} actorId={actorId} role={role} />
           ))}
-        </Swiper>
+        </div>
       </div>
     </div>
   );
