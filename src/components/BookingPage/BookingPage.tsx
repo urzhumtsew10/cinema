@@ -58,6 +58,8 @@ export const BookingPage: FC = () => {
     return seats;
   };
 
+  console.log(films);
+
   useEffect(() => {
     if (!sessions) return;
     const firstFilmSession = sessions.find(

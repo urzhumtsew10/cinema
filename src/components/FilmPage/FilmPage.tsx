@@ -57,8 +57,6 @@ export const FilmPage: FC = () => {
     navigation(`/booking/${currentFilm._id}`);
   };
 
-  console.log(currentFilm);
-
   return (
     <div className="app__filmPage">
       <YouTube

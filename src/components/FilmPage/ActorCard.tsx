@@ -7,12 +7,12 @@ interface IActor {
 }
 
 export const ActorCard: FC<IActor> = ({ actorId, role }) => {
-  const [currentActor, setCurrentActor] = useState<Actor>();
   const { data } = useGetActorQuery(actorId);
+  const [currentActor, setCurrentActor] = useState<Actor>();
   useEffect(() => {
-    if (!data) return;
-    setCurrentActor(data);
+    if (data) setCurrentActor(data);
   }, [data]);
+
   return (
     <div className="actorsSwiper__actorCard">
       <img className="actorCard__img" src={currentActor?.imgPath} alt="photo" />
