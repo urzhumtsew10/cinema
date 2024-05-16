@@ -18,13 +18,12 @@ const initialState: IinitialState = {
   userNavList: [
     { id: 1, text: "Personal Data", isActive: true },
     { id: 2, text: "Order History", isActive: false },
-    { id: 3, text: "Your Cards", isActive: false },
-    { id: 4, text: "Log out", isActive: false },
+    { id: 3, text: "Log out", isActive: false },
   ],
   adminNavList: [
-    { id: 5, text: "Film", isActive: false },
-    { id: 6, text: "Actor", isActive: false },
-    { id: 7, text: "Session", isActive: false },
+    { id: 4, text: "Film", isActive: false },
+    { id: 5, text: "Actor", isActive: false },
+    { id: 6, text: "Session", isActive: false },
   ],
   sessionFilm: "",
 };

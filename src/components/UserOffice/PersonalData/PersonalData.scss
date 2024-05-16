@@ -7,6 +7,20 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 75px;
   gap: 40px;
+  @media (min-width: 768px) and (max-width: 1279.5px) {
+    grid-template-columns: repeat(
+      2,
+      calc(250px + (350 - 250) * ((100vw - 768px) / (1280 - 768)))
+    );
+  }
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    padding-left: calc(15px + (20 - 15) * ((100vw - 360px) / (768 - 360)));
+    padding-right: calc(15px + (20 - 15) * ((100vw - 360px) / (768 - 360)));
+    padding-right: calc(25px + (40 - 25) * ((100vw - 360px) / (768 - 360)));
+    gap: calc(10px + (40 - 10) * ((100vw - 360px) / (768 - 360)));
+    height: auto;
+    grid-template-columns: 1fr;
+  }
 }
 .personalDataPage__personalInfoBlock {
   height: 60px;
@@ -16,6 +30,9 @@
   color: #ececec;
   font-size: 19px;
   font-weight: 600;
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    font-size: calc(16px + (19 - 16) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .personalInfoBlock__text {
   margin: 5px 0 0 5px;
@@ -30,11 +47,18 @@
   justify-content: space-between;
 }
 .changePasswordBlock__input {
+  padding: 10px 0 0 5px;
   width: 350px;
   height: 22px;
   font-size: 16px;
   font-weight: 300;
   color: #ececec;
+  @media (min-width: 768px) and (max-width: 1279.5px) {
+    width: calc(215px + (392 - 215) * ((100vw - 768px) / (1280 - 768)));
+  }
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    width: calc(200px + (215 - 200) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .changePasswordBlock__actionBtn {
   transition: 0.3s;

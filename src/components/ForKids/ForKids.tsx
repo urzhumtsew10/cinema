@@ -37,7 +37,18 @@ export const ForKids: FC = () => {
       <h2 className="forKidsBlock__title">For Kids</h2>
       <Swiper
         className="forKidsBlock__swiperFilms"
-        slidesPerView={countFilms}
+        slidesPerView={3.35}
+        breakpoints={{
+          1280: {
+            slidesPerView: 3.35,
+          },
+          768: {
+            slidesPerView: 2.35,
+          },
+          360: {
+            slidesPerView: 1.35,
+          },
+        }}
         autoplay={{
           delay: 2500,
           disableOnInteraction: false,

@@ -5,11 +5,12 @@ import { ReactComponent as TicketSvg } from "../../svg/ticket.svg";
 import { ReactComponent as LogoutSvg } from "../../svg/logout.svg";
 import { ReactComponent as SettingsSvg } from "../../svg/settings.svg";
 import { useAppDispatch } from "../../store/hooks";
-import { navListSlice, setIsActive } from "../../store/navList";
+import { setIsActive } from "../../store/navList";
 import { useNavigate } from "react-router-dom";
-import { resetSelectedSeats, toggleSelectedSeats } from "../../store/modal";
+import { resetSelectedSeats } from "../../store/modal";
 import { setActiveNavItem } from "../../store/office";
 import { useCookies } from "react-cookie";
+import { Link } from "react-scroll";
 
 interface INavigationItem {
   id: number;
@@ -83,9 +84,8 @@ export const NavigationItem: FC<INavigationItem> = ({
     }
   };
   function selectItem() {
-    if (text === "Home") {
-      navigation("/");
-    } else if (text === "Log out") {
+    navigation("/");
+    if (text === "Log out") {
       navigation("/");
       localStorage.removeItem("userData");
       removeCookie("token");
@@ -99,13 +99,22 @@ export const NavigationItem: FC<INavigationItem> = ({
 
   return (
     <li className={`navigationList__item`}>
-      {getComponentSvg(name, isActive)}
-      <p
-        onClick={selectItem}
-        className={`navigationList__item__text ${isActive && "active"}`}
+      <Link
+        className="navigationList__item__link"
+        to={`${name}`}
+        spy={true}
+        smooth={true}
+        offset={0}
+        duration={1000}
       >
-        {text}
-      </p>
+        {getComponentSvg(name, isActive)}
+        <p
+          onClick={selectItem}
+          className={`navigationList__item__text ${isActive && "active"}`}
+        >
+          {text}
+        </p>
+      </Link>
     </li>
   );
 };

@@ -29,21 +29,9 @@ export const FilmPage: FC = () => {
     imgPath: "",
   });
 
-  const [countActors, setCountActors] = useState<number>(2.5);
-
-  useEffect(() => {
-    if (window.screen.width >= 1280) {
-      setCountActors(6.5);
-    } else if (window.screen.width < 1280 && window.screen.width >= 768) {
-      setCountActors(4.5);
-    }
-    if (window.screen.width > 360 && window.screen.width <= 767) {
-      setCountActors(1.35);
-    }
-  }, [window.screen.width]);
-
   useEffect(() => {
     dispatch(setIsActive(-1));
+    window.scrollTo({ top: 0 });
   }, []);
 
   useEffect(() => {

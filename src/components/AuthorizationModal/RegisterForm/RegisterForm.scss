@@ -4,11 +4,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    padding-right: calc(20px + (30 - 20) * ((100vw - 360px) / (768 - 360)));
+    padding-left: calc(20px + (30 - 20) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .registerFormBlock__title {
   font-size: 30px;
   font-weight: 600;
   color: #fff;
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    font-size: calc(27px + (30 - 27) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .registerFormBlock__registerForm {
   margin-top: 50px;
@@ -16,6 +23,9 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    margin-top: calc(20px + (50 - 20) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .registerForm__inputBox {
   position: relative;
@@ -28,6 +38,10 @@
   position: absolute;
   top: 10px;
   right: 1px;
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    font-size: calc(12px + (14 - 12) * ((100vw - 360px) / (768 - 360)));
+    top: calc(0px + (10 - 0) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .inputBox__input.error {
   border: 2px solid #ff5056;
@@ -43,6 +57,11 @@
   font-size: 16px;
   color: #fff;
   font-weight: 500;
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    margin-top: calc(20px + (30 - 20) * ((100vw - 360px) / (768 - 360)));
+    height: calc(40px + (45 - 40) * ((100vw - 360px) / (768 - 360)));
+    font-size: calc(14px + (16 - 14) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .inputBox__input::placeholder {
   color: #fff;
@@ -62,6 +81,12 @@
   font-size: 18px;
   font-weight: 500;
   color: #fff;
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    margin-top: calc(30px + (50 - 30) * ((100vw - 360px) / (768 - 360)));
+    height: calc(40px + (45 - 40) * ((100vw - 360px) / (768 - 360)));
+    width: calc(215px + (285 - 215) * ((100vw - 360px) / (768 - 360)));
+    border-radius: calc(10px + (15 - 10) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .registerForm__btnSubmit::before {
   transition: 0.3s;
@@ -73,15 +98,29 @@
   width: 0;
   border-radius: 12px;
   background-color: #b9b8b996;
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    border-radius: calc(7px + (12 - 7) * ((100vw - 360px) / (768 - 360)));
+  }
 }
-.registerForm__btnSubmit:hover:before {
-  width: 100%;
+@media (hover: hover) {
+  .registerForm__btnSubmit:hover:before {
+    width: 100%;
+  }
 }
+@media (hover: none) {
+  .registerForm__btnSubmit:active:before {
+    width: 100%;
+  }
+}
+
 .registerFormBlock__text {
   margin-top: 10px;
   font-size: 15px;
   font-weight: 400;
   color: #b9b8b9;
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    font-size: calc(12px + (15 - 12) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .text__span {
   cursor: pointer;

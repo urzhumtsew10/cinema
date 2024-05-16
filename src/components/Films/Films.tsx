@@ -104,7 +104,7 @@ export const Films: FC = () => {
   };
 
   return (
-    <div className="homePage__films">
+    <div id="ticket" className="homePage__films">
       <div className="films__filmFilter">
         <div className="filmFilter__filterByDay">
           <p

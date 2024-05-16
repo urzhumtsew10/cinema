@@ -6,6 +6,10 @@
   border-radius: 10px;
   display: flex;
   justify-content: space-between;
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    padding-left: calc(10px + (20 - 10) * ((100vw - 360px) / (768 - 360)));
+    padding-right: calc(10px + (20 - 10) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .actorEditor__actorForm {
   display: flex;
@@ -26,6 +30,12 @@ input[type="file"] {
   font-size: 16px;
   font-weight: 500;
   color: #858585;
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    width: calc(130px + (300 - 130) * ((100vw - 360px) / (768 - 360)));
+    height: calc(40px + (45 - 40) * ((100vw - 360px) / (768 - 360)));
+    font-size: calc(14px + (16 - 14) * ((100vw - 360px) / (768 - 360)));
+    padding-left: calc(5px + (10 - 5) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .actorForm__input.error,
 .actorForm__customInputFile.error {
@@ -45,6 +55,11 @@ input[type="file"] {
   font-size: 16px;
   font-weight: 500;
   color: #858585;
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    width: calc(130px + (200 - 130) * ((100vw - 360px) / (768 - 360)));
+    height: calc(40px + (45 - 40) * ((100vw - 360px) / (768 - 360)));
+    font-size: calc(14px + (16 - 14) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .actorForm__customInputFile:hover {
   background-color: #2c2d33;
@@ -52,6 +67,10 @@ input[type="file"] {
 .actorEditor__viewImg {
   max-height: 320px;
   max-width: 500px;
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    width: calc(110px + (210 - 110) * ((100vw - 360px) / (768 - 360)));
+    height: calc(180px + (320 - 180) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .actorEditor__btn {
   position: absolute;

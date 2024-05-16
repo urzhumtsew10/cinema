@@ -53,7 +53,7 @@ export const Feedback: FC = () => {
   };
 
   return (
-    <div className="app__feedbackBlock">
+    <div id="calendar" className="app__feedbackBlock">
       <p className="feedbackBlock__title">
         <span className="feedbackBlock__title__span">Already watched?</span>{" "}
         <br /> Your feedback helps others decide which films to watch

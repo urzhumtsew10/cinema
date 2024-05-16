@@ -67,10 +67,11 @@
 }
 .navigationList__item {
   width: 100%;
+}
+.navigationList__item__link {
   display: flex;
   align-items: center;
 }
-
 .navigationList__item__text {
   cursor: pointer;
   color: #696c7f;

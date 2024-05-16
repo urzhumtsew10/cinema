@@ -41,7 +41,7 @@ export const Header: FC = () => {
   };
 
   return (
-    <header className="header">
+    <header id="home" className="header">
       <h3 className="header__greetings">
         {(cookies.token && "Hello") || "Your"}{" "}
         <span className="greetings__span">

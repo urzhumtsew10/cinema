@@ -1,13 +1,29 @@
 .infoPage__orderHistoryPage {
   padding: 20px 20px 0 20px;
   width: 100%;
-  height: 100%;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(auto-fit, 350px);
-  grid-template-rows: 200px;
   gap: 20px;
+  height: 100%;
   overflow-y: scroll;
+  @media (min-width: 768px) and (max-width: 1279.5px) {
+    padding-right: calc(15px + (20 - 15) * ((100vw - 768px) / (1280 - 768)));
+    padding-left: calc(15px + (20 - 15) * ((100vw - 768px) / (1280 - 768)));
+    grid-template-columns: repeat(
+      auto-fit,
+      calc(235px + (350 - 235) * ((100vw - 768px) / (1280 - 768)))
+    );
+  }
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    height: auto;
+    grid-template-columns: repeat(
+      auto-fit,
+      calc(230px + (350 - 230) * ((100vw - 360px) / (768 - 360)))
+    );
+    padding-left: calc(15px + (15 - 15) * ((100vw - 360px) / (768 - 360)));
+    padding-right: calc(15px + (15 - 15) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .orderHistoryPage__orderTicket {
   position: relative;
@@ -15,6 +31,14 @@
   height: 200px;
   background-color: #cecece;
   display: flex;
+  @media (min-width: 768px) and (max-width: 1279.5px) {
+    width: calc(235px + (350 - 235) * ((100vw - 768px) / (1280 - 768)));
+    height: calc(130px + (200 - 130) * ((100vw - 768px) / (1280 - 768)));
+  }
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    width: calc(230px + (235 - 230) * ((100vw - 360px) / (768 - 360)));
+    height: calc(130px + (130 - 130) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .orderTicket__centerCut {
   position: relative;
@@ -36,6 +60,14 @@
   height: 28px;
   border-radius: 50%;
   background-color: #3d3d44;
+  @media (min-width: 768px) and (max-width: 1279.5px) {
+    width: calc(24px + (28 - 24) * ((100vw - 768px) / (1280 - 768)));
+    height: calc(24px + (28 - 24) * ((100vw - 768px) / (1280 - 768)));
+  }
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    width: calc(20px + (28 - 20) * ((100vw - 360px) / (768 - 360)));
+    height: calc(20px + (28 - 20) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .centerCut__topCut {
   top: -8px;
@@ -52,18 +84,37 @@
   align-items: center;
   justify-content: center;
   width: 100px;
+  @media (min-width: 768px) and (max-width: 1279.5px) {
+    width: calc(75px + (100 - 75) * ((100vw - 768px) / (1280 - 768)));
+  }
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    width: calc(70px + (75 - 70) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .orderTicket__rightPart {
   position: relative;
   padding-left: 20px;
   width: 250px;
-  //   background-color: aquamarine;
+  @media (min-width: 768px) and (max-width: 1279.5px) {
+    width: calc(145px + (250 - 145) * ((100vw - 768px) / (1280 - 768)));
+    padding-left: calc(15px + (20 - 15) * ((100vw - 768px) / (1280 - 768)));
+  }
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    width: calc(150px + (145 - 150) * ((100vw - 360px) / (768 - 360)));
+    padding-left: calc(15px + (15 - 15) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .rightPart__title {
   margin-top: 10px;
   font-size: 16px;
   font-weight: 600;
   color: #696c7f;
+  @media (min-width: 768px) and (max-width: 1279.5px) {
+    font-size: calc(13px + (16 - 13) * ((100vw - 768px) / (1280 - 768)));
+  }
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    font-size: calc(13px + (13 - 13) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .rightPart__seats {
   margin-top: 10px;
@@ -72,6 +123,14 @@
   color: #696c7f;
   width: 200px;
   overflow-x: scroll;
+  @media (min-width: 768px) and (max-width: 1279.5px) {
+    font-size: calc(12px + (14 - 12) * ((100vw - 768px) / (1280 - 768)));
+    width: calc(120px + (200 - 120) * ((100vw - 768px) / (1280 - 768)));
+  }
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    font-size: calc(12px + (12 - 12) * ((100vw - 360px) / (768 - 360)));
+    width: calc(120px + (120 - 120) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 .rigthPart__price {
   position: absolute;
@@ -81,6 +140,12 @@
   font-size: 18px;
   font-weight: 600;
   color: #3a3c46;
+  @media (min-width: 768px) and (max-width: 1279.5px) {
+    font-size: calc(16px + (18 - 16) * ((100vw - 768px) / (1280 - 768)));
+    right: calc(10px + (25 - 10) * ((100vw - 768px) / (1280 - 768)));
+  }
+  font-size: calc(16px + (18 - 16) * ((100vw - 360px) / (768 - 360)));
+  right: calc(15px + (25 - 15) * ((100vw - 360px) / (768 - 360)));
 }
 .rightPart__seats::-webkit-scrollbar {
   height: 2px;
@@ -116,4 +181,10 @@
   font-size: 12px;
   font-weight: 500;
   color: #696c7f;
+  @media (min-width: 768px) and (max-width: 1279.5px) {
+    font-size: calc(9px + (12 - 9) * ((100vw - 768px) / (1280 - 768)));
+  }
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    font-size: calc(9px + (9 - 9) * ((100vw - 360px) / (768 - 360)));
+  }
 }
