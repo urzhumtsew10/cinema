@@ -19,7 +19,9 @@ export const NavItem: FC<INavItem> = ({ id, text, isActive }) => {
     if (text === "Log out") {
       navigation("/");
       localStorage.removeItem("userData");
+      console.log("work before");
       removeCookie("token");
+      console.log("work after");
       dispatch(setActiveNavItem(1));
     }
   };

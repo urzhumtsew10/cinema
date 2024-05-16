@@ -51,8 +51,8 @@ export type TOrder = {
 export const appApi = createApi({
   reducerPath: "appApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://cinema-api-urzhumtsew.vercel.app",
-    // baseUrl: "http://localhost:3030",
+    // baseUrl: "https://cinema-api-urzhumtsew.vercel.app",
+    baseUrl: "http://localhost:3030",
   }),
   endpoints: (builder) => ({
     getActors: builder.query<Actor[], string>({

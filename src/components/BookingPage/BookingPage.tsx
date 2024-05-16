@@ -129,6 +129,8 @@ export const BookingPage: FC = () => {
       price: selectedSeats.length * 10,
     };
     const res = await axios.post(`${BASE_URL}/order`, payData);
+    console.log(payData);
+
     refreshOrders("");
     dispatch(resetSelectedSeats());
   };

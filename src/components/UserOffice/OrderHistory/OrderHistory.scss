@@ -16,7 +16,6 @@
     );
   }
   @media (min-width: 360px) and (max-width: 767.5px) {
-    height: auto;
     grid-template-columns: repeat(
       auto-fit,
       calc(230px + (350 - 230) * ((100vw - 360px) / (768 - 360)))
