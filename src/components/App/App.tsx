@@ -8,13 +8,27 @@ import "./App.scss";
 import { UserOffice } from "../UserOffice/UserOffice";
 import { FilmPage } from "../FilmPage/FilmPage";
 import { BookingPage } from "../BookingPage/BookingPage";
+import { Loading } from "../Loading/Loading";
+import { useAppSelector } from "../../store/hooks";
+import { useEffect } from "react";
 
 export const BASE_URL = "https://cinema-api-urzhumtsew.vercel.app";
 // export const BASE_URL = "http://localhost:3030";
 
 function App() {
+  const isLoading = useAppSelector((state) => state.modal.isLoading);
+
+  useEffect(() => {
+    if (isLoading) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "inherit";
+    }
+  }, [isLoading]);
+
   return (
     <div className="app container">
+      {isLoading && <Loading />}
       <Navigation />
       <section className="app__mainSection">
         <Header />

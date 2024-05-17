@@ -1,11 +1,14 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import "../Header/Header.scss";
 import { ReactComponent as Magnifier } from "../../svg/magnifier.svg";
 import { useNavigate } from "react-router-dom";
 import { ReactComponent as Avatar } from "../../svg/avatar.svg";
+import { ReactComponent as Close } from "../../images/close.svg";
 import { useCookies } from "react-cookie";
 import { useAppDispatch } from "../../store/hooks";
 import { setIsAuthUser } from "../../store/modal";
+import { Movie, useGetFilmsQuery } from "../../store/api";
+import { SearchMovie } from "./SearchMovie";
 
 export const Header: FC = () => {
   interface IUserData {
@@ -16,7 +19,12 @@ export const Header: FC = () => {
 
   const navigation = useNavigate();
   const [cookies] = useCookies(["token"]);
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const searchInputRef = useRef<HTMLInputElement>(null);
+  const films: Movie[] | undefined = useGetFilmsQuery("").data;
+  const [filteredFilms, setFilteredFilms] = useState<Movie[]>([]);
+  const [searchingClass, setSearchingClass] = useState<string>("");
   const [userData, setUserData] = useState<IUserData>({
     name: "",
     email: "",
@@ -40,6 +48,32 @@ export const Header: FC = () => {
     navigation("/auth/login");
   };
 
+  const trySearchMovie = () => {
+    setSearchingClass("active");
+    if (searchInputRef.current && films) {
+      const searchText = searchInputRef.current.value.trim();
+      const searchReg = new RegExp(
+        `${searchInputRef.current.value.toLowerCase()}`
+      );
+      const filteredFilms = films.filter((film) => {
+        const filmInfo =
+          `${film.title} ${film.genre} ${film.country} ${film.releaseDate}`.toLowerCase();
+        return searchReg.test(filmInfo);
+      });
+      setFilteredFilms(filteredFilms);
+    }
+  };
+
+  const closeSearchingResults = () => {
+    if (searchInputRef.current) searchInputRef.current.value = "";
+    setSearchingClass("unactive");
+  };
+
+  const openFilmPage = (id: string) => {
+    navigate(`/film/${id}`);
+    closeSearchingResults();
+  };
+
   return (
     <header id="home" className="header">
       <h3 className="header__greetings">
@@ -49,13 +83,39 @@ export const Header: FC = () => {
         </span>
         😊
       </h3>
-      <div className="header__searchBar">
-        <Magnifier className="searchBar__img" />
-        <input
-          className="searchBar__input"
-          type="text"
-          placeholder="Tap to search"
-        />
+      <div className="header__searching">
+        <div className="header__searchBar">
+          <Magnifier onClick={trySearchMovie} className="searchBar__img" />
+          <input
+            ref={searchInputRef}
+            className="searchBar__input"
+            type="text"
+            placeholder="Tap to search"
+          />
+          {searchingClass === "active" && (
+            <Close
+              onClick={closeSearchingResults}
+              className="searchBar__closeImg"
+            />
+          )}
+        </div>
+        <div className={`searching__searchingResult ${searchingClass}`}>
+          {filteredFilms &&
+            filteredFilms.map(({ _id, title, genre, releaseDate, imgPath }) => (
+              <SearchMovie
+                key={_id}
+                id={_id}
+                title={title}
+                genre={genre}
+                releaseDate={releaseDate}
+                imgPath={imgPath}
+                openFilmPage={openFilmPage}
+              />
+            ))}
+          {filteredFilms.length === 0 && (
+            <p className="searching__text">Not found the films</p>
+          )}
+        </div>
       </div>
 
       {!cookies.token && (

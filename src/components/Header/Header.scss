@@ -29,6 +29,97 @@
   font-weight: 600;
   color: #fff;
 }
+.searching__searchingResult {
+  z-index: 2;
+  position: absolute;
+  width: 500px;
+  height: 0px;
+  opacity: 0;
+  overflow-y: scroll;
+  background-color: #202127;
+  border-radius: 10px;
+
+  @media (min-width: 768px) and (max-width: 1279px) {
+    width: calc(280px + (500 - 280) * ((100vw - 768px) / (1280 - 768)));
+  }
+  @media (min-width: 360px) and (max-width: 767px) {
+    width: calc(215px + (280 - 215) * ((100vw - 360px) / (768 - 360)));
+  }
+}
+.searching__searchingResult.active {
+  animation: open-searching 0.3s linear forwards;
+}
+.searching__searchingResult.unactive {
+  animation: close-searching 0.3s linear forwards;
+}
+@keyframes open-searching {
+  0% {
+    opacity: 1;
+    height: 0px;
+  }
+  100% {
+    opacity: 1;
+    height: 300px;
+  }
+}
+@keyframes close-searching {
+  0% {
+    opacity: 1;
+    height: 300px;
+  }
+  100% {
+    opacity: 0;
+    height: 0px;
+  }
+}
+.searchingResult__searchMovie {
+  cursor: pointer;
+  padding: 0px 5px 0px 5px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: max-content;
+  width: 100%;
+  height: 100px;
+  border-bottom: 2px solid #2c2d35;
+}
+.searching__text {
+  margin: 5px auto 0 auto;
+  width: fit-content;
+  font-size: 18px;
+  color: #696c7f;
+}
+.searchMovie__poster {
+  height: 89px;
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    height: calc(80px + (89 - 80) * ((100vw - 360px) / (768 - 360)));
+  }
+}
+.searchMovie__info {
+  margin-left: 10px;
+  grid-column-start: 2;
+  height: fit-content;
+}
+.searchMovie__title {
+  font-size: 16px;
+  color: #cecece;
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    font-size: calc(14px + (16 - 14) * ((100vw - 360px) / (768 - 360)));
+  }
+}
+.searchMovie__genre {
+  font-size: 14px;
+  color: #696c7f;
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    font-size: calc(12px + (14 - 12) * ((100vw - 360px) / (768 - 360)));
+  }
+}
+.searchMovie__releaseYear {
+  font-size: 14px;
+  color: #cecece;
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    font-size: calc(12px + (14 - 12) * ((100vw - 360px) / (768 - 360)));
+  }
+}
 .header__searchBar {
   padding-left: 10px;
   display: flex;
@@ -38,17 +129,37 @@
   border: 2px solid #696c7f;
   border-radius: 15px;
   @media (min-width: 768px) and (max-width: 1279px) {
-    width: calc(280px + (500 - 280) * ((100vw - 768px) / (1280 - 768)));
     height: calc(45px + (50 - 45) * ((100vw - 768px) / (1280 - 768)));
     border-radius: calc(12px + (15 - 12) * ((100vw - 768px) / (1280 - 768)));
   }
   @media (min-width: 360px) and (max-width: 767px) {
-    width: calc(215px + (280 - 215) * ((100vw - 360px) / (768 - 360)));
     height: 45px;
     border-radius: 12px;
   }
+  @media (min-width: 768px) and (max-width: 1279px) {
+    width: calc(280px + (500 - 280) * ((100vw - 768px) / (1280 - 768)));
+  }
+  @media (min-width: 360px) and (max-width: 767px) {
+    width: calc(215px + (280 - 215) * ((100vw - 360px) / (768 - 360)));
+  }
 }
-
+.searchBar__closeImg {
+  transition: 0.3s;
+  cursor: pointer;
+  width: 27px;
+  height: 27px;
+  path {
+    fill: #696c7f;
+  }
+  @media (min-width: 360px) and (max-width: 767.5px) {
+    margin-right: 5px;
+  }
+}
+@media (hover: hover) {
+  .searchBar__closeImg:hover {
+    transform: scale(1.08) translateY(-2px);
+  }
+}
 .searchBar__img {
   cursor: pointer;
   transition: 0.3s;

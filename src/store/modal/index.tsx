@@ -5,6 +5,7 @@ interface IinitialState {
   movieId: string;
   filter: any;
   selectedSeats: string[];
+  isLoading: Boolean;
 }
 
 interface IFilterPayload {
@@ -17,12 +18,16 @@ const initialState: IinitialState = {
   movieId: "",
   filter: { day: "Today", country: "All", genre: "All" },
   selectedSeats: [],
+  isLoading: true,
 };
 
 const modalSlice = createSlice({
   name: "modal",
   initialState,
   reducers: {
+    setIsLoading: (state, action: PayloadAction<boolean>) => {
+      return { ...state, isLoading: action.payload };
+    },
     resetSelectedSeats: (state) => {
       return { ...state, selectedSeats: [] };
     },
@@ -49,6 +54,7 @@ const modalSlice = createSlice({
 });
 
 export const {
+  setIsLoading,
   setIsAuthUser,
   setMovieId,
   setFilter,

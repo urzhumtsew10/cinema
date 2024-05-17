@@ -1,11 +1,10 @@
 import { FC, useEffect, useState } from "react";
 import "../FilmPage/FilmPage.scss";
 import { useNavigate, useParams } from "react-router-dom";
-import { Movie, useGetFeedbacksQuery, useGetFilmQuery } from "../../store/api";
+import { Movie, useGetFeedbacksQuery, useGetFilmsQuery } from "../../store/api";
 import { useAppDispatch } from "../../store/hooks";
 import { setIsActive } from "../../store/navList";
 import { ActorCard } from "./ActorCard";
-import { Swiper, SwiperSlide } from "swiper/react";
 import { ReactComponent as Star } from "../../svg/star.svg";
 import YouTube from "react-youtube";
 
@@ -13,7 +12,7 @@ export const FilmPage: FC = () => {
   const params = useParams();
   const navigation = useNavigate();
   const dispatch = useAppDispatch();
-  const { data } = useGetFilmQuery(String(params.filmId));
+  const films = useGetFilmsQuery("").data;
   const feedbacks = useGetFeedbacksQuery("").data;
   const [filmRating, setFilmRating] = useState<number>(0);
   const [currentFilm, setCurrentFilm] = useState<Movie>({
@@ -50,8 +49,11 @@ export const FilmPage: FC = () => {
   }, [currentFilm]);
 
   useEffect(() => {
-    if (data) setCurrentFilm(data);
-  }, [data]);
+    if (films) {
+      const film = films.find(({ _id }) => _id === params.filmId);
+      if (film) setCurrentFilm(film);
+    }
+  }, [films]);
 
   const openBookingPage = () => {
     navigation(`/booking/${currentFilm._id}`);

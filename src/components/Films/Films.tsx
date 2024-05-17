@@ -4,7 +4,7 @@ import { Film } from "./Film";
 import { Movie, useGetFilmsQuery, useGetSessionsQuery } from "../../store/api";
 import { FilterSelect } from "./FilterSelect";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import { setFilter } from "../../store/modal";
+import { setFilter, setIsLoading } from "../../store/modal";
 
 export const Films: FC = () => {
   const films = useGetFilmsQuery("").data;
@@ -38,6 +38,14 @@ export const Films: FC = () => {
         return ``;
     }
   };
+
+  useEffect(() => {
+    if (films) {
+      setTimeout(() => {
+        dispatch(setIsLoading(false));
+      }, 1000);
+    }
+  }, [films]);
 
   useEffect(() => {
     if (!sessions || !films) return;
