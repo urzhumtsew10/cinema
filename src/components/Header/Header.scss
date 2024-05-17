@@ -220,6 +220,12 @@
   background: #696c7f7a;
   border-radius: 14px;
   transition: all 0.3s ease;
+  @media (min-width: 768px) and (max-width: 1279px) {
+    height: calc(45px + (50 - 45) * ((100vw - 768px) / (1280 - 768)));
+  }
+  @media (min-width: 360px) and (max-width: 767px) {
+    width: calc(100px + (120 - 100) * ((100vw - 360px) / (768 - 360)));
+  }
 }
 
 .header__loginBtn:hover:before {
