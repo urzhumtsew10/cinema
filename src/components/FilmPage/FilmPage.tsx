@@ -53,7 +53,7 @@ export const FilmPage: FC = () => {
       const film = films.find(({ _id }) => _id === params.filmId);
       if (film) setCurrentFilm(film);
     }
-  }, [films]);
+  }, [films, params.filmId]);
 
   const openBookingPage = () => {
     navigation(`/booking/${currentFilm._id}`);
