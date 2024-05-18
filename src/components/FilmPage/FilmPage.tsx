@@ -7,6 +7,7 @@ import { setIsActive } from "../../store/navList";
 import { ActorCard } from "./ActorCard";
 import { ReactComponent as Star } from "../../svg/star.svg";
 import YouTube from "react-youtube";
+import { setIsLoading } from "../../store/modal";
 
 export const FilmPage: FC = () => {
   const params = useParams();

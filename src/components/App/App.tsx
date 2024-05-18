@@ -9,13 +9,26 @@ import { UserOffice } from "../UserOffice/UserOffice";
 import { FilmPage } from "../FilmPage/FilmPage";
 import { BookingPage } from "../BookingPage/BookingPage";
 import { Loading } from "../Loading/Loading";
-import { useAppSelector } from "../../store/hooks";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { useEffect } from "react";
+import { useGetFilmsQuery } from "../../store/api";
+import { setIsLoading } from "../../store/modal";
 
 export const BASE_URL = "https://cinema-api-urzhumtsew.vercel.app";
 // export const BASE_URL = "http://localhost:3030";
 
 function App() {
+  const films = useGetFilmsQuery("").data;
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    if (films) {
+      setTimeout(() => {
+        dispatch(setIsLoading(false));
+      }, 1000);
+    }
+  }, [films]);
+
   const isLoading = useAppSelector((state) => state.modal.isLoading);
 
   useEffect(() => {

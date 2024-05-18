@@ -40,14 +40,6 @@ export const Films: FC = () => {
   };
 
   useEffect(() => {
-    if (films) {
-      setTimeout(() => {
-        dispatch(setIsLoading(false));
-      }, 1000);
-    }
-  }, [films]);
-
-  useEffect(() => {
     if (!sessions || !films) return;
     dispatch(setFilter({ type: "day", value: filterDay }));
   }, [films, filterDay]);
